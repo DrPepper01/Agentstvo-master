@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+<!-- Фото по ширине страницы -->
+  <header>
+    <div class="header-image">
+      <img src="https://krot.info/uploads/posts/2021-12/1639063870_2-krot-info-p-panorama-nochnogo-goroda-krasivie-foto-3.jpg" class="header-image" alt="Фото">
+      <div class="header-content">
+        <h1 class="header-title">Недвижимость для всех!</h1>
+        <a href="#" class="header-button">Подобрать</a>
+      </div>
+    </div>
+  </header>
+  <br>
+  <br>
+  <!-- карточки товара -->
+  <div class="container">
+    <div class="row">
+
+      {% for home in homes %}
+      <div class="col-md-4">
+        <div class="card">
+
+          {% if home.img %}
+          <a href="{% url 'detail_page' home.pk %}"><img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1"></a>
+          {% else %}
+          <a href="{% url 'detail_page' home.pk %}"><img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 3"></a>
+          {% endif%}
+          <div class="card-body">
+            <h5 class="card-title"> {{ home.title }} </h5>
+            <p class="card-text"> {{ home.info|truncatewords:10 }}</p>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+       {% endfor %}
+
+
+      <!-- конец карточек товара -->
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+
+<!-- Фото по ширине страницы -->
+
+  <br>
+  <br>
+  <!-- карточки товара -->
+  <div class="container">
+    <div class="row">
+
+      {% for home in homes %}
+      <div class="col-md-4">
+        <div class="card">
+
+          {% if home.img %}
+          <a href="{% url 'detail_page' home.pk %}"><img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1"></a>
+          {% else %}
+          <a href="{% url 'detail_page' home.pk %}"><img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 3"></a>
+          {% endif%}
+          <div class="card-body">
+            <h5 class="card-title"> {{ home.title }} </h5>
+            <p class="card-text"> {{ home.info|truncatewords:10 }}</p>
+          </div>
+        </div>
+      </div>
+       {% endfor %}
+
+
+      <!-- конец карточек товара -->
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
+
+
+

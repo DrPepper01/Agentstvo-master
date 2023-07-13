@@ -1,0 +1,24 @@
+ __pycache__/
+ *.py[cod]
+
+ *.log
+ *.pot
+ *.pyc
+ *.swp
+ *.sql
+
+ .env
+
+ /staticfiles/
+
+ /media/
+
+ *.sqlite
+
+ .idea/
+ *.iml
+ *.ipr
+ *.iws
+
+ venv/
+
