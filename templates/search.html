@@ -3,8 +3,28 @@
 {% block content  %}
 
 
-<!-- Фото по ширине страницы -->
 
+
+  <br>
+  <br>
+    <div class="container">
+
+
+      <form action="" method="get" >
+
+
+        <input name="q" placeholder="text_search">
+        <input name="max" placeholder="max_price">
+        <input name="min" placeholder="min_price">
+        <button type="submit" > Search </button>
+
+
+      </form>
+
+
+
+
+    </div>
   <br>
   <br>
   <!-- карточки товара -->
@@ -22,6 +42,7 @@
           {% endif%}
           <div class="card-body">
             <h5 class="card-title"> {{ home.title }} </h5>
+            <h5 class="card-title"> {{ home.cost }} </h5>
             <p class="card-text"> {{ home.info|truncatewords:10 }}</p>
           </div>
         </div>

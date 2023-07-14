@@ -9,6 +9,7 @@ class Category(models.Model):
 
 
 class Home(models.Model):
+    objects = None
     title = models.CharField(max_length=200, blank=True,null=True)
     info = models.TextField()
     s = models.FloatField()

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content  %}
 <!-- Фото по ширине страницы -->
   <header>
     <div class="header-image">
-      <img src="https://krot.info/uploads/posts/2021-12/1639063870_2-krot-info-p-panorama-nochnogo-goroda-krasivie-foto-3.jpg" class="header-image" alt="Фото">
+      <img src="{% static 'img/header1.jpg'%}" class="header-image" alt="Фото">
       <div class="header-content">
         <h1 class="header-title">Недвижимость для всех!</h1>
         <a href="#" class="header-button">Подобрать</a>
