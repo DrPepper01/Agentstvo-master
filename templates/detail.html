@@ -2,34 +2,71 @@
 {% block content %}
 
 <br>
+<br>
 
- <div class="container">
+<div class="container">
     <div class="row">
-
-      <div class="col-md-4">
-        <div class="card">
-
-          {% if home.img %}
-          <img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1">
-          {% else %}
-          <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 3">
-          {% endif%}
-          <div class="card-body">
-            <h5 class="card-title"> {{ home.title }} </h5>
-            <h5 class="card-title"> {{ home.s }} кв.м</h5>
-            <h5 class="card-title"> Район {{ home.district }}  </h5>
-            <h5 class="card-title"> Цена {{ home.cost }} </h5>
-            <p class="card-text"> {{ home.info }}</p>
-          </div>
+        <!-- Колонка с описанием -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ home.title }}</h5>
+                    <h5 class="card-title">{{ home.s }} кв/м</h5>
+                    <h5 class="card-title">Район {{ home.district }}</h5>
+                    <h5 class="card-title">Цена {{ home.cost }}</h5>
+                    <p class="card-text">{{ home.info }}</p>
+                </div>
+            </div>
         </div>
-      </div>
 
-
-
-      <!-- конец карточек товара -->
-
+        <!-- Колонка с картой -->
+        <div class="col-md-4">
+            <div class="card">
+                <!--  код для блока с картой здесь -->
+                <div class="map">
+                    <!--  код для карты здесь -->
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="row">
+        <!-- Колонка с изображением -->
+        <div class="col-md-4">
+            <div class="card">
+                {% if home.img %}
+                <img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1">
+                {% else %}
+                <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 1">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                {% if home.img %}
+                <img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1">
+                {% else %}
+                <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 1">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                {% if home.img %}
+                <img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1">
+                {% else %}
+                <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 1">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 {% endblock %}

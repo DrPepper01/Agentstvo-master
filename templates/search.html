@@ -12,14 +12,26 @@
 
       <form action="" method="get" >
 
+      <select name="category" class="form-control" onchange="this.form.submit()">
+        <option value="">Тип недвижимости</option>
+            {% for i in categories %}
+                <option value="{{ i.pk }}" {% if request.GET.category|stringformat:"s" == i.pk|stringformat:"s" %}selected{% endif %}>{{ i }}</option>
+            {% endfor %}
+      </select>
 
-        <input name="q" placeholder="text_search">
-        <input name="max" placeholder="max_price">
-        <input name="min" placeholder="min_price">
+
+
+
+
+
+        <input name="q" placeholder="text_search" value="{{ request.GET.q}}">
+        <input name="max" placeholder="max_price" value="{{ request.GET.max}}">
+        <input name="min" placeholder="min_price" value="{{ request.GET.min}}">
         <button type="submit" > Search </button>
 
 
       </form>
+
 
 
 
@@ -36,9 +48,9 @@
         <div class="card">
 
           {% if home.img %}
-          <a href="{% url 'detail_page' home.pk %}"><img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1"></a>
+          <a href="{{ home.get_absolute_url }}"><img src="{{ home.img.url }}" class="card-img-top" alt="Товар 1"></a>
           {% else %}
-          <a href="{% url 'detail_page' home.pk %}"><img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 3"></a>
+          <a href="{{ home.get_absolute_url }}"><img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" class="card-img-top" alt="Товар 3"></a>
           {% endif%}
           <div class="card-body">
             <h5 class="card-title"> {{ home.title }} </h5>
